@@ -18,6 +18,7 @@
     "nodemon": "2.0.6"
   },
   "dependencies": {
+    "@graphql-mesh/openapi": "0.18.18",
     "@graphql-mesh/cli": "0.41.0",
     "@graphql-mesh/graphql": "0.18.16",
     "@graphql-mesh/transform-federation": "0.6.8",

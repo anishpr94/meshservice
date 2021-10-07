@@ -1,33 +1,32 @@
 sources:
-  - name: accounts
+  - name: Countries
     handler:
       graphql:
-        endpoint: http://localhost:9871/graphql
+        endpoint: https://countries.trevorblades.com
     transforms:
       - federation:
           types:
             - name: Query
               config:
                 extend: true
-            - name: User
+            - name: Country
+              config:
+                keyFields:
+                  - code
+  - name: CartQL
+    handler:
+      graphql:
+        endpoint: https://api.cartql.com
+    transforms:
+      - federation:
+          types:
+            - name: Query
+              config:
+                extend: true
+            - name: Cart
               config:
                 keyFields:
                   - id
-                resolveReference:
-                  queryFieldName: user
-  - name: reviews
-    handler:
-      graphql:
-        endpoint: http://localhost:9872/graphql
-  - name: products
-    handler:
-      graphql:
-        endpoint: http://localhost:9873/graphql
-  - name: inventory
-    handler:
-      graphql:
-        endpoint: http://localhost:9874/graphql
-
 documents:
   - example-query.graphql
 
